@@ -19,8 +19,6 @@
         <!-- Header -->
         @yield('content')
 
-        @include('includes.home.footer')
-
        @stack('prepend-script') 
 
        @include('includes.home.script')

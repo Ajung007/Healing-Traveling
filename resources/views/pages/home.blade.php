@@ -61,17 +61,12 @@
                 class="section-populer-travel row justify-content-center"
             >
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div
-                        class="card-travel text-center d-flex flex-column"
-                        style="
-                            background-image: url('frontend/images/populer-1.jpg');
-                        "
-                    >
+                    <div class="card-travel text-center d-flex flex-column" style=" background-image: url('frontend/images/populer-1.jpg');">
                         <div class="travel-country">Indonesia</div>
                         <div class="travel-location">Daratan, Bali</div>
                         <div class="travel-button mt-auto">
                             <a
-                                href="details.html"
+                                href="{{ route('detail') }}"
                                 class="btn btn-travel-details px-4"
                             >
                                 View Details
@@ -80,17 +75,12 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div
-                        class="card-travel text-center d-flex flex-column"
-                        style="
-                            background-image: url('frontend/images/populer-2.jpg');
-                        "
-                    >
+                    <div class="card-travel text-center d-flex flex-column" style="background-image: url('frontend/images/populer-2.jpg');">
                         <div class="travel-country">Indonesia</div>
                         <div class="travel-location">Bromo, Malang</div>
                         <div class="travel-button mt-auto">
                             <a
-                                href="details.html"
+                                href="{{ route('detail') }}"
                                 class="btn btn-travel-details px-4"
                             >
                                 View Details
@@ -109,7 +99,7 @@
                         <div class="travel-location">Nusa Peninda</div>
                         <div class="travel-button mt-auto">
                             <a
-                                href="details.html"
+                                href="{{ route('detail') }}"
                                 class="btn btn-travel-details px-4"
                             >
                                 View Details
@@ -130,7 +120,7 @@
                         </div>
                         <div class="travel-button mt-auto">
                             <a
-                                href="details.html"
+                                href="{{ route('detail') }}"
                                 class="btn btn-travel-details px-4"
                             >
                                 View Details
@@ -154,7 +144,7 @@
                 </div>
                 <div class="col-md-8 text-center">
                     <img
-                        src="frontend/images/partner.png"
+                        src="{{ url('frontend/images/partner.png') }}"
                         alt="Logo Partners"
                         class="img-partner"
                     />
@@ -192,7 +182,7 @@
                     <div class="card card-testimonial text-center">
                         <div class="testimonial-content">
                             <img
-                                src="frontend/images/pic-1.jpg"
+                                src="{{ url('frontend/images/pic-1.jpg') }}"
                                 alt="user"
                                 class="mb-4 rounded-circle"
                             />
@@ -211,7 +201,7 @@
                     <div class="card card-testimonial text-center">
                         <div class="testimonial-content">
                             <img
-                                src="frontend/images/pic-2.jpg"
+                                src="{{ url('frontend/images/pic-2.jpg') }}"
                                 alt="user"
                                 class="mb-4 rounded-circle"
                             />
@@ -230,7 +220,7 @@
                     <div class="card card-testimonial text-center">
                         <div class="testimonial-content">
                             <img
-                                src="frontend/images/pic-3.jpg"
+                                src="{{ url('frontend/images/pic-3.jpg') }}"
                                 alt="user"
                                 class="mb-4 rounded-circle"
                             />

@@ -1,39 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="frontend/libraries/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="frontend/libraries/xzoom/xzoom.min.css">
-    <link rel="stylesheet" href="frontend/libraries/combined/css/gijgo.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="frontend/styles/main.css">
-
-</head>
-<body>
-    
-    <!-- navbar -->
-    <div class="container">
-        <nav class="row navbar navbar-expand-lg navbar-light bg-white">
-            <div class="navbar-nav ml-auto mr-auto mr-sm-auto mr-lg-0 mr-md-auto">
-                <a href="index.html" class="navbar-brand">
-                    <img src="frontend/images/logo.png" alt="">
-                </a>
-            </div>
-            <ul class="navbar-nav mr-auto d-none d-lg-block">
-                <li>
-                    <span class="text-muted">
-                    | &nbsp; Beyond the explorer of the world 
-                    </span>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-   <main>
+@extends('layouts.checkout')
+@section('title','Checkout')
+@section('content')
+<main>
     <section class="section-details-header">  </section>
         <section class="section-details-content">
             <div class="container">
@@ -76,7 +44,7 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <img src="frontend/images/checkout-1.png" height="60">
+                                                <img src="{{ url('frontend/images/checkout-1.png') }}" height="60">
                                             </td>
                                             <td class="align-middle">
                                                 Angga
@@ -92,13 +60,13 @@
                                             </td>
                                             <td class="align-middle">
                                                 <a href="#">
-                                                    <img src="frontend/images/remove.png" alt="">
+                                                    <img src="{{ url('frontend/images/remove.png') }}" alt="">
                                                 </a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="frontend/images/checkout-2.png" height="60">
+                                                <img src="{{ url('frontend/images/checkout-2.png') }}" height="60">
                                             </td>
                                             <td class="align-middle">
                                                 Galih
@@ -114,7 +82,7 @@
                                             </td>
                                             <td class="align-middle">
                                                 <a href="#">
-                                                    <img src="frontend/images/remove.png" alt="">
+                                                    <img src="{{ url('frontend/images/remove.png') }}" alt="">
                                                 </a>
                                             </td>
                                         </tr>
@@ -196,7 +164,7 @@
                             </p>
                             <div class="bank">
                                 <div class="bank-item pb-3">
-                                    <img src="frontend/images/ic_bank.png" alt="" class="bank-image">
+                                    <img src="{{ url('frontend/images/ic_bank.png') }}" alt="" class="bank-image">
                                     <div class="description">
                                         <h3>PT Hello World</h3>
                                         <p>
@@ -208,7 +176,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="bank-item pb-3">
-                                    <img src="frontend/images/ic_bank.png" alt="" class="bank-image">
+                                    <img src="{{ url('frontend/images/ic_bank.png') }}" alt="" class="bank-image">
                                     <div class="description">
                                         <h3>PT Hello World</h3>
                                         <p>
@@ -222,12 +190,12 @@
                             </div>
                         </div>
                         <div class="join-container">
-                            <a href="success.html" class="btn btn-block btn-join-now mt-3 py-2">
+                            <a href="{{ route('success') }}" class="btn btn-block btn-join-now mt-3 py-2">
                                 I Have Made Payment
                             </a>
                         </div>
                         <div class="text-center mt-3">
-                            <a href="details.html" class="text-muted">
+                            <a href="{{ route('detail') }}" class="text-muted">
                                 Cancel Booking
                             </a>
                         </div>
@@ -236,83 +204,24 @@
             </div>
       
     </section>
-   </main>    
+   </main>   
 
-   <footer class="section-footer mt-5 mb-4 border-top">
-    <div class="container pt-5 pb-5">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-12 col-lg-3">
-                        <h5>Features</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Reviews</a></li>
-                            <li><a href="#">Community</a></li>
-                            <li><a href="#">Social Media Kit</a></li>
-                            <li><a href="#">Affiliate</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-3">
-                        <h5>Account</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Refund</a></li>
-                            <li><a href="#">Security</a></li>
-                            <li><a href="#">Reward</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-3">
-                        <h5>Company</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Career</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Media</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-3">
-                        <h5>Get Connected</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Jakarta Selatan</a></li>
-                            <li><a href="#">Indonesia</a></li>
-                            <li><a href="#">xxxx-xxxx-xxx</a></li>
-                            <li><a href="#">healing@traveling.id</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row border-top justify-content-center align-items-center pt-4">
-            <div class="col-auto text-gray-500 font-weight-light">
-                2023 Copyright • All rights reserved • Made in Semarang
-            </div>
-        </div>
-    </div>
-   </footer>
+@endsection
 
+@push('prepend-style')
+<link rel="stylesheet" href="frontend/libraries/combined/css/gijgo.min.css">
+@endpush
 
-
-    <script src="frontend/libraries/jquery/jquery-3.7.1.min.js"></script>
-    <script src="frontend/libraries/bootstrap/js/bootstrap.js"></script>
-    <script src="frontend/libraries/retina/retina.min.js"></script>
-    <script src="frontend/libraries/xzoom/xzoom.min.js"></script>
-    <script src="frontend/libraries/combined/js/gijgo.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.xzoom, .xzoom-gallery').xzoom({
-                zoomWidth: 500,
-                title : false,
-                tint : '#333',
-                xoffset: 15,
-            });
-        });
-
+@push('addon-script')
+<script src="frontend/libraries/combined/js/gijgo.min.js"></script>
+<script>
+$(document).ready(function() {
         $('.datepicker').datepicker({
-            uiLibrary: 'bootstrap4',
-            icons:{
-                rightIcon:'<img src="frontend/images/ic-date.png" />'
-            }
-        });
-    </script>
-</body>
-</html>
+        uiLibrary: 'bootstrap4',
+        icons:{
+            rightIcon:'<img src="{{ url('frontend/images/ic-date.png') }}" />'
+        }
+    });
+});
+</script>
+@endpush

@@ -23,7 +23,13 @@ Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::get('/success', [CheckoutController::class, 'success'])->name('success');
 
 
-Route::prefix('admin')->namespace('Admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-});
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware(['auth', 'admin'])
+    ->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    });
+
+
+Auth::routes();
 

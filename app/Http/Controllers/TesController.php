@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\TravelPackage;
 use Illuminate\Http\Request;
 
-class TravelPackageController extends Controller
+class TesController extends Controller
 {
     public function index()
     {

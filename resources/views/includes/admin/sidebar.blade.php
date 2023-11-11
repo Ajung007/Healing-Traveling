@@ -22,7 +22,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('travel-gallery.index') }}">
             <i class="fas fa-solid fa-image"></i>
             <span>Gallery Travel</span></a>
     </li>

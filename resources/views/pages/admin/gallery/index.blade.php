@@ -7,7 +7,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Paket Travel</h1>
-            <a href="{{ route('travel-package.create') }}" class="btn btn-sm btn-primary shadown-sm">
+            <a href="#" class="btn btn-sm btn-primary shadown-sm">
                 <i class="fas fa-plus fa-sm text-white-50"></i>Tambah Paket Travel
             </a>
         </div>
@@ -18,29 +18,25 @@
                     <table class="table table-bordered" widht="100%" cellspacing="0">
                         <thead>
                             <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Location</th>
-                            <th>Type</th>
-                            <th>Departure Date</th>
-                            <th>Type</th>
-                            <th>Action</th>
+                                <th>ID</th>
+                                <th>Travel</th>
+                                <th>Gambar</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($items as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->title }}</td>
-                                <td>{{ $item->location }}</td>
-                                <td>{{ $item->type }}</td>
-                                <td>{{ $item->departure_date }}</td>
-                                <td>{{ $item->type }}</td>
+                                <td>{{ $item->travel_package->title }}</td>                    
                                 <td>
-                                    <a href="{{ route('travel-package.edit', $item->id) }}" class="btn btn-info">
+                                    <img src="{{ Storage::url($item->image) }}" alt="" style="widht:150px" class="img-thumbnail">
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-info">
                                          <i class="fas fa-edit"></i>
                                     </a>
-                                    <form action="{{ route('travel-package.delete', $item->id) }}" method="post" class="d-inline">
+                                    <form action="#" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
 

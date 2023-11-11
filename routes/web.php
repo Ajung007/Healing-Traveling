@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\TravelPackageController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailController;
@@ -32,8 +33,17 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-
+        // Travel Package Controller
         Route::get('/travel-package', [TravelPackageController::class,'index'])->name('travel-package.index');
+        Route::get('/travel-package/create', [TravelPackageController::class,'create'])->name('travel-package.create');
+        Route::post('/travel-package/create', [TravelPackageController::class,'store'])->name('travel-package.store');
+        Route::get('/travel-package/edit/{id}',[TravelPackageController::class, 'edit'])->name('travel-package.edit');
+        Route::post('/travel-package/update/{id}',[TravelPackageController::class, 'update'])->name('travel-package.update');
+        Route::delete('/travel-package/delete/{id}',[TravelPackageController::class, 'delete'])->name('travel-package.delete');
+
+        // Galler Controller 
+        Route::get('/travel-image', [GalleryController::class,'index'])->name('travel-gallery.index');
+        
 
     });
 

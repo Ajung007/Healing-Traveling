@@ -6,9 +6,9 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Paket Travel</h1>
-            <a href="#" class="btn btn-sm btn-primary shadown-sm">
-                <i class="fas fa-plus fa-sm text-white-50"></i>Tambah Paket Travel
+            <h1 class="h3 mb-0 text-gray-800">Gallery</h1>
+            <a href="{{ route('travel-gallery.create') }}" class="btn btn-sm btn-primary shadown-sm">
+                <i class="fas fa-plus fa-sm text-white-50"></i>Tambah Gallery
             </a>
         </div>
       
@@ -30,13 +30,13 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->travel_package->title }}</td>                    
                                 <td>
-                                    <img src="{{ Storage::url($item->image) }}" alt="" style="widht:150px" class="img-thumbnail">
+                                    <img src="{{ Storage::url($item->image) }}" alt="" style="width: 150px;" class="img-thumbnail">
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-info">
+                                    <a href="{{ route('travel-gallery.edit', $item->id) }}" class="btn btn-info">
                                          <i class="fas fa-edit"></i>
                                     </a>
-                                    <form action="#" method="post" class="d-inline">
+                                    <form action="{{ route('travel-gallery.delete', $item->id) }}" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
 

@@ -43,7 +43,11 @@ Route::prefix('admin')
 
         // Galler Controller 
         Route::get('/travel-image', [GalleryController::class,'index'])->name('travel-gallery.index');
-        
+        Route::get('/travel-image/create', [GalleryController::class,'create'])->name('travel-gallery.create');
+        Route::post('/travel-image/create', [GalleryController::class,'store'])->name('travel-gallery.store');
+        Route::get('/travel-image/edit/{id}', [GalleryController::class,'edit'])->name('travel-gallery.edit');
+        Route::put('/travel-image/edit/{id}', [GalleryController::class,'update'])->name('travel-gallery.update');
+        Route::delete('travel-image/delete/{id}', [GalleryController::class,'delete'])->name('travel-gallery.delete');
 
     });
 

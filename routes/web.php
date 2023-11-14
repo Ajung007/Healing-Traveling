@@ -7,6 +7,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TesController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,9 @@ Route::prefix('admin')
         Route::get('/travel-image/edit/{id}', [GalleryController::class,'edit'])->name('travel-gallery.edit');
         Route::put('/travel-image/edit/{id}', [GalleryController::class,'update'])->name('travel-gallery.update');
         Route::delete('travel-image/delete/{id}', [GalleryController::class,'delete'])->name('travel-gallery.delete');
+
+        // Transaction Controller
+        Route::get('/transaction', [TransactionController::class,'index'])->name('trans.index');
 
     });
 

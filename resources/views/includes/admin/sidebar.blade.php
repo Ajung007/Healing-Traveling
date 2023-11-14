@@ -28,7 +28,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('trans.index') }}">
             <i class="fas fa-solid fa-dollar-sign"></i>
             <span>Transaksi</span></a>
     </li>

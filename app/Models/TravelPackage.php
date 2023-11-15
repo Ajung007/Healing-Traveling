@@ -32,7 +32,7 @@ class TravelPackage extends Model
 
     public function galleries()
     {
-        $this->hasMany(Gallery::class, 'travel_packages_id','id');
+       return $this->hasMany(Gallery::class, 'travel_packages_id', 'id');
     }
 
 }

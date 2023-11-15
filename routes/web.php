@@ -23,15 +23,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/detail', [DetailController::class, 'index'])->name('detail');
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-Route::get('/success', [CheckoutController::class, 'success'])->name('success');
-
+Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
+// Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+// Route::get('/success', [CheckoutController::class, 'success'])->name('success');
+Route::prefix('checkout')
+        ->middleware(['auth','verified'])
+        ->group(function()
+        {
+            Route::post('/{id}', [CheckoutController::class, 'proses'])->name('checkout.proses');
+        });
 
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware(['auth', 'admin'])
     ->group(function () {
+        // Dashboard
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // Travel Package Controller

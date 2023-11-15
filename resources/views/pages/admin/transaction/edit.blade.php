@@ -6,7 +6,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit Paket Travel {{ $item->title }}</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Status</h1>
         </div>
       
 
@@ -22,48 +22,19 @@
 
         <div class="card shadow">
             <div class="card-body">
-                <form action="{{ route('travel-package.update', $item->id) }}" method="POST">
+                <form action="{{ route('trans.update', $item->id) }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Titel" value="{{ $item->title }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" class="form-control" name="location" placeholder="Location" value="{{ $item->location }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="about">About</label>
-                        <textarea name="about" id="about" rows="10" class="d-block w-100 form-control">{{ $item->about }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="featured_event">Feature Event</label>
-                        <textarea name="featured_event" id="featured_event" rows="10" class="d-block w-100 form-control">{{ $item->featured_event }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="language">language</label>
-                        <input type="text" class="form-control" name="language" placeholder="Language" value="{{ $item->language }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="foods">Foods</label>
-                        <input type="text" class="form-control" name="foods" placeholder="Foods" value="{{ $item->foods }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="departure_date">Depature Date</label>
-                        <input type="date" class="form-control" name="departure_date" placeholder="departure_date" value="{{ $item->departure_date }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="duration">Duration</label>
-                        <input type="text" class="form-control" name="duration" placeholder="Duration" value="{{ $item->duration }}">
-                    </div> 
-                    <div class="form-group">
-                        <label for="type">type</label>
-                        <input type="text" class="form-control" name="type" placeholder="Type" value="{{ $item->type }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">price</label>
-                        <input type="number" class="form-control" name="price" placeholder="price" value="{{ $item->price }}">
-                    </div>  
+                        <label for="trasanction_status">Status</label>
+                        <select name="transaction_status" id="transaction_status" class="form-control">
+                            <option value="{{ $item->transaction_status }}" selected> Status saat ini <b>{{ $item->transaction_status }}</b></option>
+                            <option value="IN CART">In Cart</option>
+                            <option value="PENDING">Pending</option>
+                            <option value="SUCCESS">Success</option>
+                            <option value="CANCEL">Cancel</option>
+                            <option value="FAILED">Failed</option>
+                        </select>
+                    </div>                   
                     <button type="submit" class="btn btn-primary btn-block">
                         Update
                     </button>

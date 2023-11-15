@@ -53,6 +53,9 @@ Route::prefix('admin')
         // Transaction Controller
         Route::get('/transaction', [TransactionController::class,'index'])->name('trans.index');
         Route::get('/transaction/detail/{id}', [TransactionController::class,'show'])->name('trans.detail');
+        Route::get('/transaction/status/{id}', [TransactionController::class,'edit'])->name('trans.edit');
+        Route::post('/transaction/status/{id}', [TransactionController::class,'update'])->name('trans.update');
+        Route::delete('/transaction/status/{id}', [TransactionController::class,'delete'])->name('trans.delete');
 
     });
 

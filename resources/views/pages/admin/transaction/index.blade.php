@@ -37,13 +37,12 @@
                                     <a href="{{ route('trans.detail', ['id' => $item->id]) }}" class="btn btn-primary">
                                         <i class="fas fa-eye"></i>
                                    </a>
-                                    <a href="#" class="btn btn-info">
+                                    <a href="{{ route('trans.edit', ['id' => $item->id]) }}" class="btn btn-info">
                                          <i class="fas fa-edit"></i>
                                     </a>
-                                    <form action="#" method="post" class="d-inline">
+                                    <form action="{{ route('trans.delete', ['id' => $item->id]) }}" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
-
                                         <button class="btn btn-danger">
                                              <i class="fa fa-trash"></i>
                                         </button>

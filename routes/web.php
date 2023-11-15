@@ -52,6 +52,7 @@ Route::prefix('admin')
 
         // Transaction Controller
         Route::get('/transaction', [TransactionController::class,'index'])->name('trans.index');
+        Route::get('/transaction/detail/{id}', [TransactionController::class,'show'])->name('trans.detail');
 
     });
 

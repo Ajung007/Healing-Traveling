@@ -19,29 +19,28 @@ class TransactionController extends Controller
 
     public function create()
     {
-        $item = TravelPackage::all();
+        $item = Transaction::all();
 
         return view('pages.admin.transaction.create', ['items' => $item]);
     }
 
-    public function store(transactionRequest $request)
+    public function show($id)
     {
-        $data = $request->all();
-        $data['image'] = $request->file('image')->store('asset/transaction','public');
-
-        transaction::create($data);
-        return redirect()->route('travel-transaction.index');
+        $item = transaction::with(['details','travel_packages','users'])->findOrFail($id);
+        $data = Transaction::all();
+        
+        return view('pages.admin.transaction.detail', ['data' => $data, 'item' => $item]);
     }
 
     public function edit($id)
     {
         $item = transaction::findOrFail($id);
-        $data = TravelPackage::all();
+        $data = Transaction::all();
         
         return view('pages.admin.transaction.edit', ['data' => $data, 'item' => $item]);
     }
 
-    public function update(transactionRequest $request, $id)
+    public function update(Request $request,$id)
     {
         $data = $request->all();
         $data['image'] = $request->file('image')->store('asset/transaction','public');

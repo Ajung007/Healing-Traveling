@@ -22,52 +22,57 @@
 
         <div class="card shadow">
             <div class="card-body">
-                <form action="{{ route('travel-package.store') }}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Titel" value="{{ old('title') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" class="form-control" name="location" placeholder="Location" value="{{ old('location') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="about">About</label>
-                        <textarea name="about" id="about" rows="10" class="d-block w-100 form-control">{{ old('about') }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="featured_event">Feature Event</label>
-                        <textarea name="featured_event" id="featured_event" rows="10" class="d-block w-100 form-control">{{ old('featured_event') }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="language">language</label>
-                        <input type="text" class="form-control" name="language" placeholder="Language" value="{{ old('language') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="foods">Foods</label>
-                        <input type="text" class="form-control" name="foods" placeholder="Foods" value="{{ old('foods') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="departure_date">Depature Date</label>
-                        <input type="date" class="form-control" name="departure_date" placeholder="departure_date" value="{{ old('departure_date') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="duration">Duration</label>
-                        <input type="text" class="form-control" name="duration" placeholder="Duration" value="{{ old('duration') }}">
-                    </div> 
-                    <div class="form-group">
-                        <label for="type">type</label>
-                        <input type="text" class="form-control" name="type" placeholder="Type" value="{{ old('type') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">price</label>
-                        <input type="number" class="form-control" name="price" placeholder="price" value="{{ old('price') }}">
-                    </div>  
-                    <button type="submit" class="btn btn-primary btn-block">
-                        Simpan
-                    </button>
-                </form>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <td>{{ $item->id }}</td>                      
+                    </tr>
+                    <tr>
+                        <td>Paket Travel</td>
+                        <td>{{ $item->travel_packages->title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nama Pembeli</td>
+                        <td>{{ $item->users->name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Additonal Visa</td>
+                        <td>{{ $item->additional_visa }}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Trasanction</td>
+                        <td>Rp {{ number_format($item->transaction_total, 2) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>{{ $item->transaction_status }}</td>
+                    </tr>
+                    <tr>
+                        <th>Pembeli</th>
+                        <td>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>Nationality</th>
+                                    <th>Visa</th>
+                                    <th>Doe Passport</th>                                    
+                                </tr>
+                                <tr>                             
+                                    @foreach ($item->details as $detail)
+                                        <tr>
+                                            <td>{{ $detail->id }}</td>
+                                            <td>{{ $detail->username }}</td>
+                                            <td>{{ $detail->nationality }}</td>
+                                            <td>{{ $detail->is_visa ? '30 Days' : 'N/A' }}</td>
+                                            <td>{{ $detail->doe_passport }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
 

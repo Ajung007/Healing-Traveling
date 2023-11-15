@@ -6,10 +6,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Paket Travel</h1>
-            <a href="{{ route('travel-package.create') }}" class="btn btn-sm btn-primary shadown-sm">
-                <i class="fas fa-plus fa-sm text-white-50"></i>Tambah Paket Travel
-            </a>
+            <h1 class="h3 mb-0 text-gray-800">Transaksi Travel</h1>
         </div>
       
         <div class="row">
@@ -19,11 +16,11 @@
                         <thead>
                             <tr>
                             <th>ID</th>
-                            <th>Title</th>
-                            <th>Location</th>
-                            <th>Type</th>
-                            <th>Departure Date</th>
-                            <th>Type</th>
+                            <th>Travel</th>
+                            <th>User</th>
+                            <th>Visa</th>
+                            <th>Total</th>
+                            <th>Status</th>
                             <th>Action</th>
                             </tr>
                         </thead>
@@ -31,16 +28,19 @@
                             @forelse ($items as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->title }}</td>
-                                <td>{{ $item->location }}</td>
-                                <td>{{ $item->type }}</td>
-                                <td>{{ $item->departure_date }}</td>
-                                <td>{{ $item->type }}</td>
+                                <td>{{ $item->travel_packages->title }}</td>
+                                <td>{{ $item->users->name }}</td>
+                                <td>{{ $item->additional_visa }}</td>
+                                <td>Rp {{ number_format($item->transaction_total)  }}</td>
+                                <td>{{ $item->transaction_status }}</td>
                                 <td>
-                                    <a href="{{ route('travel-package.edit', $item->id) }}" class="btn btn-info">
+                                    <a href="{{ route('trans.detail', ['id' => $item->id]) }}" class="btn btn-primary">
+                                        <i class="fas fa-eye"></i>
+                                   </a>
+                                    <a href="#" class="btn btn-info">
                                          <i class="fas fa-edit"></i>
                                     </a>
-                                    <form action="{{ route('travel-package.delete', $item->id) }}" method="post" class="d-inline">
+                                    <form action="#" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
 

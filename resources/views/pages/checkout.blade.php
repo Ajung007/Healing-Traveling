@@ -25,9 +25,18 @@
                 <div class="row">
                     <div class="col-lg-8 pl-lg-0">
                         <div class="card card-details">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <h1>Who is Going ?</h1>
                             <p>
-                                Trip to Ubud, Bali, Indonesia
+                                Trip to {{ $data->travel_packages->title }}, {{ $data->travel_packages->location }} 
                             </p>
                             <div class="attendee">
                                 <table class="table table-responsive-sm text-center">
@@ -42,50 +51,37 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src="{{ url('frontend/images/checkout-1.png') }}" height="60">
+                                      @forelse ($data->details as $detail)
+                                      <tr>
+                                        <td>
+                                            <img src="https://ui-avatars.com/api/?name={{ $detail->username}}" height="60" class="rounded-circle">
+                                        </td>
+                                        <td class="align-middle">
+                                            {{ $detail->username }}
+                                        </td>
+                                        <td class="align-middle">
+                                            {{ $detail->nationality }}
+                                        </td>
+                                        <td class="align-middle">
+                                            {{ $detail->is_visa ? '30 Days' : 'N/A'  }}
+                                        </td>
+                                        <td class="align-middle">
+                                            {{ Carbon\Carbon::createFromDate($detail->doe_passport) > Carbon\Carbon::now() ? 'Active' : 'Inactive' }}
+                                        </td>
+                                        <td class="align-middle">
+                                            <a href="{{ route('checkout.remove', ['detail_id' => $detail->id ]) }}">
+                                                <img src="{{ url('frontend/images/remove.png') }}" alt="">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                      @empty
+                                          <tr>
+                                            <td colspan="6" class="text-center">
+                                                Tidak ada user
                                             </td>
-                                            <td class="align-middle">
-                                                Angga
-                                            </td>
-                                            <td class="align-middle">
-                                                CN
-                                            </td>
-                                            <td class="align-middle">
-                                                N/A
-                                            </td>
-                                            <td class="align-middle">
-                                                Active
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="#">
-                                                    <img src="{{ url('frontend/images/remove.png') }}" alt="">
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="{{ url('frontend/images/checkout-2.png') }}" height="60">
-                                            </td>
-                                            <td class="align-middle">
-                                                Galih
-                                            </td>
-                                            <td class="align-middle">
-                                                SG
-                                            </td>
-                                            <td class="align-middle">
-                                                30 Days
-                                            </td>
-                                            <td class="align-middle">
-                                                Active
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="#">
-                                                    <img src="{{ url('frontend/images/remove.png') }}" alt="">
-                                                </a>
-                                            </td>
-                                        </tr>
+                                          </tr>
+                                      @endforelse
+                                    
                                     </tbody>
                                 </table>
                             </div>
@@ -190,12 +186,12 @@
                             </div>
                         </div>
                         <div class="join-container">
-                            <a href="{{ route('success') }}" class="btn btn-block btn-join-now mt-3 py-2">
+                            <a href="{{ route('success', $data->id) }}" class="btn btn-block btn-join-now mt-3 py-2">
                                 I Have Made Payment
                             </a>
                         </div>
                         <div class="text-center mt-3">
-                            <a href="{{ route('detail') }}" class="text-muted">
+                            <a href="{{ route('detail', $data->travel_packages->slug) }}" class="text-muted">
                                 Cancel Booking
                             </a>
                         </div>

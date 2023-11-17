@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-    public function index(Request $request, $id)
+    public function checkout(Request $request, $id)
     {
         $data = Transaction::with(['details','travel_packages','users'])->findOrFail($id);
+
+        // dd($data);
 
         return view('pages.checkout',[
             'data' => $data

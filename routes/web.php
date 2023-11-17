@@ -24,14 +24,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-// Route::get('/success', [CheckoutController::class, 'success'])->name('success');
+// Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/success', [CheckoutController::class, 'success'])->name('success');
 Route::prefix('checkout')
         ->middleware(['auth','verified'])
         ->group(function()
         {
             Route::post('/{id}', [CheckoutController::class, 'proses'])->name('checkout.proses');
-            Route::get('/{id}', [CheckoutController::class, 'checkout'])->name('checkout.checkout');
+            Route::get('/{id}', [CheckoutController::class, 'checkout'])->name('checkout');
             Route::post('create/{detail_id}', [CheckoutController::class, 'create'])->name('checkout.create');
             Route::post('remove/{detail_id}', [CheckoutController::class, 'remove'])->name('checkout.remove');
             Route::post('confirm/{detail_id}', [CheckoutController::class, 'succeess'])->name('checkout.confirm');

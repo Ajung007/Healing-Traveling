@@ -73,7 +73,7 @@ class CheckoutController extends Controller
         ]);
 
         $data = $request->all();
-        $data['trasanction_id'] = $id;
+        $data['transaction_id'] = $id;
         TransactionDetail::create($data);
 
 

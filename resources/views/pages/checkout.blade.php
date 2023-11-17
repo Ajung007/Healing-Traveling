@@ -77,7 +77,7 @@
                                       @empty
                                           <tr>
                                             <td colspan="6" class="text-center">
-                                                Tidak ada user
+                                                No Visitor
                                             </td>
                                           </tr>
                                       @endforelse
@@ -87,18 +87,21 @@
                             </div>
                             <div class="member mt-3">
                                 <h2>Add Member</h2>
-                                <form action="" class="form-inline">
-                                    <label for="inputUsername" class="sr-only">Name</label>
-                                    <input type="text" name="inputUsername" class="form-control mb-2 mr-sm-2" id="inputUsername" placeholder="Username">
-                                    <label for="inputVisa" class="sr-only">Visa</label>
-                                    <select name="inputVisa" id="inputVisa" class="custom-select mb-2 mr-sm-2">
-                                        <option value="Visa" selected>Visa</option>
-                                        <option value="30 Days">30 Days</option>
-                                        <option value="N/A">N/A</option>
+                                <form action="{{ route('checkout.create', ['id' => $data->id]) }}" class="form-inline" method="POST">
+                                    @csrf
+                                    <label for="username" class="sr-only">Name</label>
+                                    <input type="text" name="username" class="form-control mb-2 mr-sm-2" id="username" placeholder="Username" required>
+                                    <label for="nationality" class="sr-only">Name</label>
+                                    <input type="text" name="nationality" class="form-control mb-2 mr-sm-2" style="width: 50px" id="nationality" placeholder="nationality" required>
+                                    <label for="is_visa" class="sr-only">Visa</label>
+                                    <select name="is_visa" id="is_visa" class="custom-select mb-2 mr-sm-2" required>
+                                        <option value="" selected disabled>Visa</option>
+                                        <option value="1">30 Days</option>
+                                        <option value="0">N/A</option>
                                     </select>
-                                    <label for="doePassport" class="sr-only">DOE Passport</label>
+                                    <label for="doe_passport" class="sr-only">DOE Passport</label>
                                     <div class="input-group mb-2 mr-sm-2">
-                                        <input type="text" class="form-control datepicker" id="deoPassport" placeholder="DEO Passport">
+                                        <input type="text" class="form-control datepicker" name="doe_passport" id="deoPassport" placeholder="DEO Passport">
                                     </div>
                                     <button type="submit" class="btn btn-add-now mb-2 px-4">Add Now</button>
                                 </form>
@@ -118,35 +121,35 @@
                                 <tr>
                                     <th width="50%">Members</th>
                                     <td width="50%" class="text-right">
-                                        2 Person
+                                        {{ $data->details->count() }} Person
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Additional Visa</th>
                                     <td width="50%" class="text-right">
-                                        $190,00
+                                        Rp {{ number_format($data->additional_visa)  }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Trip Price</th>
                                     <td width="50%" class="text-right">
-                                        $80,00/Person
+                                        Rp {{ number_format($data->travel_packages->price)  }}/Person
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Sub total</th>
                                     <td width="50%" class="text-right">
-                                        $280
+                                        Rp {{ number_format($data->transaction_total)  }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Total (+Unique)</th>
                                     <td width="50%" class="text-right text-total">
                                         <span class="text-blue">
-                                            $279,
+                                            Rp {{ number_format($data->transaction_total) }},
                                         </span>
                                         <span class="text-orage">
-                                            33
+                                            {{ mt_rand(0,99) }}
                                         </span>
                                     </td>
                                 </tr>
@@ -205,14 +208,15 @@
 @endsection
 
 @push('prepend-style')
-<link rel="stylesheet" href="frontend/libraries/combined/css/gijgo.min.css">
+<link rel="stylesheet" href="{{ url('frontend/libraries/combined/css/gijgo.min.css') }}">
 @endpush
 
 @push('addon-script')
-<script src="frontend/libraries/combined/js/gijgo.min.js"></script>
+<script src=" {{ url('frontend/libraries/combined/js/gijgo.min.js') }}"></script>
 <script>
 $(document).ready(function() {
         $('.datepicker').datepicker({
+        format : 'yyyy-mm-dd',
         uiLibrary: 'bootstrap4',
         icons:{
             rightIcon:'<img src="{{ url('frontend/images/ic-date.png') }}" />'

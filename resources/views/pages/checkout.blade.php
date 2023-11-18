@@ -87,7 +87,7 @@
                             </div>
                             <div class="member mt-3">
                                 <h2>Add Member</h2>
-                                <form action="{{ route('checkout.create', ['id' => $data->id]) }}" class="form-inline" method="POST">
+                                <form action="{{ route('checkout.create', ['detail_id' => $data->id]) }}" class="form-inline" method="POST">
                                     @csrf
                                     <label for="username" class="sr-only">Name</label>
                                     <input type="text" name="username" class="form-control mb-2 mr-sm-2" id="username" placeholder="Username" required>

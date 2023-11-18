@@ -64,7 +64,7 @@ class CheckoutController extends Controller
         return redirect()->route('checkout', $item->transaction_id);
     }   
 
-    public function create(Request $request, $id)
+    public function create(Request $request, $detail_id)
     {
         $request->validate([
             'username' => 'required|string|exists:users,username',
@@ -73,12 +73,12 @@ class CheckoutController extends Controller
         ]);
 
         $data = $request->all();
-        $data['transaction_id'] = $id;
+        $data['transactions_id'] = $detail_id;
         TransactionDetail::create($data);
 
 
         // digunakan untuk menyimpan data pada DB Transaction
-        $transaction = Transaction::with(['travel_packages'])->find($id);
+        $transaction = Transaction::with(['travel_packages'])->find($detail_id);
         if($request->is_visa)
         {
             $transaction->transaction_total += 190; //ditambahkan += 190 sama dengan menambahkan 190
@@ -89,7 +89,7 @@ class CheckoutController extends Controller
 
         $transaction->save();
 
-        return redirect()->route('checkout', $id);
+        return redirect()->route('checkout', $detail_id);
     }
 
     public function success(Request $request, $id)

@@ -189,7 +189,7 @@
                             </div>
                         </div>
                         <div class="join-container">
-                            <a href="{{ route('success', $data->id) }}" class="btn btn-block btn-join-now mt-3 py-2">
+                            <a href="{{ route('success', ['detail_id' => $data->id]) }}" class="btn btn-block btn-join-now mt-3 py-2">
                                 I Have Made Payment
                             </a>
                         </div>

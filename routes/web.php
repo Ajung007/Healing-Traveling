@@ -33,9 +33,9 @@ Route::prefix('checkout')
             Route::post('/{id}', [CheckoutController::class, 'proses'])->name('checkout.proses');
             Route::get('/{id}', [CheckoutController::class, 'checkout'])->name('checkout');
             Route::post('create/{detail_id}', [CheckoutController::class, 'create'])->name('checkout.create');
-            Route::post('remove/{detail_id}', [CheckoutController::class, 'remove'])->name('checkout.remove');
+            Route::get('remove/{detail_id}', [CheckoutController::class, 'remove'])->name('checkout.remove');
             Route::post('confirm/{detail_id}', [CheckoutController::class, 'succeess'])->name('checkout.confirm');
-            Route::get('/success', [CheckoutController::class, 'success'])->name('success');
+            Route::get('/success/{detail_id}', [CheckoutController::class, 'success'])->name('success');
         });
 
 Route::prefix('admin')

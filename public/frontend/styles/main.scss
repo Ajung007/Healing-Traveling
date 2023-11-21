@@ -541,3 +541,48 @@ header{
     }
 }
 
+.register-container{
+    @media(min-width: 992px)
+    {
+        background: linear-gradient(90deg, #fff 50%, #E4E6EB 50%);
+        width: 100vw;
+        height: 100vh;
+    }
+}
+.page-register{
+    height: 100vh;
+    width: 1300px;
+    
+    .btn-login{
+        background-color: #ff9e53;
+        color: #fff;
+
+        &:hover{
+            background-color: #f7a86c;
+            color: #ffff;
+        }
+    }
+}
+
+.section-left{
+    h1{
+        font-family : "Playfair Display";
+        font-weight: bold;
+        font-size: 50px;
+        text-align: left;
+        color: #071C4D;
+    }
+}
+
+.section-right{
+    a{
+        font-family: Assistant;
+        font-weight: 300;
+        text-decoration: underline;
+        font-size: 16px;
+        text-align: center;
+        color: #161616;
+    }
+}
+
+

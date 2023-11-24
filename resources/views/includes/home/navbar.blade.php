@@ -29,7 +29,7 @@
                         >Services</a
                     >
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Link 1</a>
+                        <a href="{{ route('transport') }}" class="dropdown-item">Link 1</a>
                         <a href="#" class="dropdown-item">Link 2</a>
                         <a href="#" class="dropdown-item">Link 3</a>
                     </div>

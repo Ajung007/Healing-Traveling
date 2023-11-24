@@ -118,7 +118,21 @@
       </mj-column>
     </mj-section>
     <!-- Section Footer -->
-     <mj-section 
+    <mj-section background-color="#ffffff" padding-bottom="0px" padding-top="0px">
+      <mj-column vertical-align="middle" width="100%">
+        <mj-text 
+        align="left" 
+        color="#071c4d" 
+        font-size="18px" 
+        line-height="20px" 
+        font-family="Playfair Display, Times New Romans, serif"
+        padding-left="25px"
+        padding-right="25px">
+            Butuh bantuan ?
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section 
     background-color="#ffffff" 
     vertical-align="top" 
     padding-bottom="20px" 
@@ -137,16 +151,15 @@
         padding-left="25px"
         padding-right="25px">
             <tr>
-                <td colspan="3">Travel Details :</td>
-            </tr>
-            <tr>
-                <td><strong>Depature</strong></td>
-                <td style="text-align:right;">Kota Lama</td>
-            </tr>
-            <tr>
-                <td><strong>Date & Time</strong></td>
-                <td style="text-align:right;">Senin, 21 Juni 2023</td>
-            </tr>
+                <td style="width: 50px;">
+                    <img src="images/qweqwe" width="50px">
+                </td>
+                   <td style="font-size:18px; padding-left:10px; color:#071C4D; font-family: Assistent, Helvetica, Arial, sans-serif">
+                Support@healing.id
+                <br>
+                021-21213-xxxx
+                </td>
+            </tr>   
         </mj-table>
       </mj-column>
     </mj-section>

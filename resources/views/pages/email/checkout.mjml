@@ -55,6 +55,7 @@
         align="left" 
         color="#071c4d" 
         font-size="18px" 
+        line-height="28px" 
         font-family="Assistent, Helvetica, Arial, sans-serif"
         padding-left="25px"
         padding-right="25px">
@@ -73,7 +74,7 @@
         padding-left="25px"
         padding-right="25px">
             <tr>
-                <td colspan="3"><strong>Members</strong></td>
+                <td colspan="3">Members :</td>
             </tr>
             <tr>
                 <td><strong>Udin</strong></td>
@@ -82,6 +83,69 @@
             <tr>
                 <td><strong>Samsul</strong></td>
                 <td style="text-align:right;">Semarang, INA</td>
+            </tr>
+        </mj-table>
+             <mj-table 
+        align="left" 
+        color="#071c4d" 
+        font-size="18px"
+        line-height="28px" 
+        font-family="Assistent, Helvetica, Arial, sans-serif"
+        padding-left="25px"
+        padding-right="25px">
+            <tr>
+                <td colspan="3">Travel Details :</td>
+            </tr>
+            <tr>
+                <td><strong>Depature</strong></td>
+                <td style="text-align:right;">Kota Lama</td>
+            </tr>
+            <tr>
+                <td><strong>Date & Time</strong></td>
+                <td style="text-align:right;">Senin, 21 Juni 2023</td>
+            </tr>
+        </mj-table>
+        <mj-button
+        align="center" 
+        font-size="18px"
+        font-weight="bold"
+        background-color="#ff9253"
+        border-radius="10px"
+        color="#fff"
+        font-family="Assistant, Helventica, Arial, sanf-serif">
+            Check details
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <!-- Section Footer -->
+     <mj-section 
+    background-color="#ffffff" 
+    vertical-align="top" 
+    padding-bottom="20px" 
+    padding-top="20px">
+      <mj-column 
+      vertical-align="middle" 
+      width="100%"
+      border-bottom="1px dashed #eee" 
+      padding-bottom="30px">       
+        <mj-table 
+        align="left" 
+        color="#071c4d" 
+        font-size="18px"
+        line-height="28px" 
+        font-family="Assistent, Helvetica, Arial, sans-serif"
+        padding-left="25px"
+        padding-right="25px">
+            <tr>
+                <td colspan="3">Travel Details :</td>
+            </tr>
+            <tr>
+                <td><strong>Depature</strong></td>
+                <td style="text-align:right;">Kota Lama</td>
+            </tr>
+            <tr>
+                <td><strong>Date & Time</strong></td>
+                <td style="text-align:right;">Senin, 21 Juni 2023</td>
             </tr>
         </mj-table>
       </mj-column>

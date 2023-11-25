@@ -107,7 +107,7 @@
                           <tbody>
                             <tr>
                               <td style="width:100px;">
-                                <img src="frontend/images/logo.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="100" height="auto" />
+                                <img src="{{ url('frontend/images/logo.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="100" height="auto" />
                               </td>
                             </tr>
                           </tbody>
@@ -167,7 +167,7 @@
                           <tbody>
                             <tr>
                               <td style="width:550px;">
-                                <img src="frontend/images/logo.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" height="auto" />
+                                <img src="{{ $data->travel_packages->galleries->image[0] }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" height="auto" />
                               </td>
                             </tr>
                           </tbody>
@@ -201,7 +201,7 @@
                           <tbody>
                             <tr>
                               <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                                <div style="font-family:Assistent, Helvetica, Arial, sans-serif;font-size:18px;line-height:28px;text-align:left;color:#071c4d;">Hi, Udin <br><br> Tiket digital anda sudah sukses <br> Booking ID <strong>#33111222</strong></div>
+                                <div style="font-family:Assistent, Helvetica, Arial, sans-serif;font-size:18px;line-height:28px;text-align:left;color:#071c4d;">Hi, {{ $data->users->name }} <br><br> Tiket digital anda sudah sukses <br> Booking ID <strong>#{{ $data->id }}</strong></div>
                               </td>
                             </tr>
                             <tr>
@@ -309,7 +309,7 @@
                                 <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#071c4d;font-family:Assistent, Helvetica, Arial, sans-serif;font-size:18px;line-height:28px;table-layout:auto;width:100%;border:none;">
                                   <tr>
                                     <td style="width: 50px;">
-                                      <img src="images/qweqwe" width="50px">
+                                      <img src="{{ url('frontend/images/ic_mail.png') }}" width="50px">
                                     </td>
                                     <td style="font-size:18px; padding-left:10px; color:#071C4D; font-family: Assistent, Helvetica, Arial, sans-serif"> Support@healing.id <br> 021-21213-xxxx </td>
                                   </tr>

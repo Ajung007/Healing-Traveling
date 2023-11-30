@@ -102,7 +102,7 @@ class CheckoutController extends Controller
         $transaction->transaction_status = "PENDING";
         $transaction->save();
 
-        dd($transaction);
+        // return $transaction;
 
         Mail::to($transaction->users)->send(new TransactionSuccess($transaction));
 

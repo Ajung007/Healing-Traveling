@@ -167,7 +167,7 @@
                           <tbody>
                             <tr>
                               <td style="width:550px;">
-                                <img src="{{ $data->travel_packages->galleries->image[0] }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" height="auto" />
+                                <img src="{{ $data->travel_packages->galleries[0]->image }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" height="auto" />
                               </td>
                             </tr>
                           </tbody>
@@ -210,14 +210,12 @@
                                   <tr>
                                     <td colspan="3">Members :</td>
                                   </tr>
+                                  @foreach ($data->details as $item)
                                   <tr>
-                                    <td><strong>Udin</strong></td>
-                                    <td style="text-align:right;">Semarang, INA</td>
+                                    <td><strong>{{ $item->username }}</strong></td>
+                                    <td style="text-align:right;">{{ $item->nationality }}</td>
                                   </tr>
-                                  <tr>
-                                    <td><strong>Samsul</strong></td>
-                                    <td style="text-align:right;">Semarang, INA</td>
-                                  </tr>
+                                  @endforeach
                                 </table>
                               </td>
                             </tr>
@@ -229,11 +227,11 @@
                                   </tr>
                                   <tr>
                                     <td><strong>Depature</strong></td>
-                                    <td style="text-align:right;">Kota Lama</td>
+                                    <td style="text-align:right;">{{ $data->travel_packages->title }}</td>
                                   </tr>
                                   <tr>
                                     <td><strong>Date & Time</strong></td>
-                                    <td style="text-align:right;">Senin, 21 Juni 2023</td>
+                                    <td style="text-align:right;">{{ $data->travel_packages->departure_date }}</td>
                                   </tr>
                                 </table>
                               </td>
@@ -244,7 +242,7 @@
                                   <tbody>
                                     <tr>
                                       <td align="center" bgcolor="#ff9253" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#ff9253;" valign="middle">
-                                        <p style="display:inline-block;background:#ff9253;color:#ffffff;font-family:Assistant, Helventica, Arial, sanf-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check details </p>
+                                        <a href="{{ route('checkout', $data->id) }}" style="display:inline-block;background:#ff9253;color:#ffffff;font-family:Assistant, Helventica, Arial, sanf-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check details </a>
                                       </td>
                                     </tr>
                                   </tbody>
